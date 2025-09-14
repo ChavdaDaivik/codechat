@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Coding Chat Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="login-container">
+                <h2><i class="fas fa-lock"></i> Secure Login</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                <div id="loginError" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-code"></i> Secure Coding Chat</h1>
+                <div class="user-info">
+                    <span id="currentUser"></span>
+                    <button id="logoutBtn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="coding">
+                <i class="fas fa-code"></i> Coding Practice
+            </button>
+            <button class="tab-btn" data-tab="chat">
+                <i class="fas fa-comments"></i> Secure Chat
+            </button>
+        </nav>
+
+        <!-- Coding Practice Section -->
+        <div id="codingTab" class="tab-content active">
+            <div class="coding-container">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="java">Java</button>
+                    <button class="lang-btn" data-lang="c">C</button>
+                    <button class="lang-btn" data-lang="html">HTML</button>
+                    <button class="lang-btn" data-lang="css">CSS</button>
+                </div>
+
+                <div class="practice-area">
+                    <div class="problem-section">
+                        <h3 id="problemTitle">Java Practice Problem</h3>
+                        <div id="problemDescription" class="problem-desc">
+                            <h4>Problem 1: Hello World</h4>
+                            <p>Write a Java program that prints "Hello, World!" to the console.</p>
+                            <div class="sample-output">
+                                <strong>Expected Output:</strong>
+                                <pre>Hello, World!</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <span>Code Editor</span>
+                            <button id="runCode" class="run-btn">
+                                <i class="fas fa-play"></i> Run Code
+                            </button>
+                        </div>
+                        <textarea id="codeEditor" placeholder="Write your code here..."></textarea>
+                        <div id="output" class="output-area"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div id="chatTab" class="tab-content">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3><i class="fas fa-comments"></i> Secure Chat Room</h3>
+                    <div class="online-users">
+                        <span id="userCount">1 user online</span>
+                    </div>
+                </div>
+                
+                <div id="chatMessages" class="chat-messages">
+                    <div class="system-message">
+                        <i class="fas fa-info-circle"></i>
+                        Welcome to the secure chat room! Your messages are encrypted.
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="input-group">
+                        <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500">
+                        <button id="sendMessage" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer with Copyright -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Secure Coding Chat Platform. All rights reserved.</p>
+                <button id="copyrightBtn" class="copyright-btn">
+                    <i class="fas fa-copyright"></i> About
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- About/Chat Page Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content about-modal">
+            <div class="about-container">
+                <h2><i class="fas fa-info-circle"></i> About Secure Chat</h2>
+                <div class="about-content">
+                    <p>This is a secure chat platform designed for coding practice and collaboration.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Secure encrypted messaging</li>
+                        <li>Coding practice in Java, C, HTML, and CSS</li>
+                        <li>Real-time chat with other users</li>
+                        <li>Code execution and testing</li>
+                    </ul>
+                    <p><strong>Login Credentials:</strong></p>
+                    <p>Username: gojoforlief</p>
+                    <p>Password: gojo@123</p>
+                </div>
+                <button id="closeAbout" class="close-btn">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
